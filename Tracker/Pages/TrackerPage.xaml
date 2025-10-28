@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:pagemodel="clr-namespace:JournalApp.PageModels"
+             xmlns:viewmodel="clr-namespace:JournalApp.PageModels.ActivityPageModels"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             x:Class="JournalApp.Pages.TrackerPage"
+             x:DataType="pagemodel:TrackerPageModel"
+             x:Name="activityTrackerPage"
+             Title="Daily Tracker">
+
+        <ScrollView>
+
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto">
+            
+                <DatePicker x:Name="datePicker"
+                            Date="{Binding Date, Mode=TwoWay}"
+                            HorizontalOptions="Center"
+                            FontSize="24"
+                            Format="d.M.yyy, dddd">   
+                </DatePicker>
+
+
+            <CollectionView ItemsSource="{Binding Entries}"
+                            Grid.Row="1">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="pagemodel:TrackerEntryViewModel">
+                        <Grid  Style="{StaticResource Grid.Entries}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding StartTime}"
+                                   FontSize="14"
+                                   VerticalOptions="Center"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="End"
+                                   Margin="4,0" />
+                            <Label Text="{Binding Icon}"
+                                   FontSize="20"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center"
+                                   VerticalTextAlignment="Center"
+                                   Margin="4,0" />
+                            <Label Text="{Binding Name}"
+                                   FontSize="14"
+                                   Grid.Column="2"
+                                   VerticalOptions="Center"
+                                   VerticalTextAlignment="Center"
+                                   Margin="4,0" />
+
+                            <Label Text="{Binding Duration, StringFormat='{}{0:hh}:{0:mm}:{0:ss}'}"
+                                   IsVisible="{Binding IsDurationVisible}"
+                                   Grid.Column="3"
+                                   VerticalOptions="Center"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   FontSize="14" />
+                            <Button Text="🖊"
+                                    Command="{Binding x:DataType='pagemodel:TrackerPageModel', Source={RelativeSource AncestorType={x:Type pagemodel:TrackerPageModel}}, Path=EditEntryCommand}"
+                                    CommandParameter="{Binding}"
+                                    Grid.Column="4"
+                                    VerticalOptions="Center"
+                                    Style="{StaticResource ButtonOutline}"
+                                    HorizontalOptions="End"
+                                    Margin="4,0" />
+                            <Button Text="🗑"
+                                    Command="{Binding x:DataType='pagemodel:TrackerPageModel', Source={RelativeSource AncestorType={x:Type pagemodel:TrackerPageModel}}, Path=RemoveEntryCommand}"
+                                    CommandParameter="{Binding}"
+                                    Grid.Column="5"
+                                    VerticalOptions="Center"
+                                    Style="{StaticResource ButtonOutline}"
+                                    HorizontalOptions="End"
+                                    Margin="4,0" />
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout Grid.Row="2"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+                <Button Text="Add"
+                        Margin="12,8"
+                        Command="{Binding AddEntryPopupCommand}"
+                        CommandParameter="{Binding Source={x:Reference activityTrackerPage}}"/>
+                <Button Text="Insert"
+                        Margin="12,8"
+                        Command="{Binding InsertEntryCommand}"
+                        CommandParameter="{Binding Source={x:Reference activityTrackerPage}}"/>
+
+            </HorizontalStackLayout>
+            
+
+            <CollectionView SelectionMode="Single"
+                        SelectionChangedCommand="{Binding AddEntryCommand}"
+                        SelectionChangedCommandParameter="{Binding x:DataType='CollectionView', Source={RelativeSource Self}, Path=SelectedItem}"
+                        ItemsSource="{Binding Activities}"
+                        ItemsLayout="VerticalGrid, 3"
+                        Grid.Row="3"
+                            Margin="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="viewmodel:ActivityViewModel">
+                    <HorizontalStackLayout>
+                        <Label Text="{Binding Icon}"
+                               FontSize="20"
+                               VerticalTextAlignment="Center"
+                                   Margin="4,2" />
+                        <Label Text="{Binding Name}"
+                               FontSize="14"
+                               VerticalTextAlignment="Center"
+                                   Margin="4,2" />
+
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+
+        </CollectionView>
+
+    </Grid>
+    </ScrollView>
+</ContentPage>
+

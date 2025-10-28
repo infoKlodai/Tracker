@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pagemodel="clr-namespace:JournalApp.PageModels"
+             x:Class="JournalApp.Pages.InsertTrackerEntryPage"
+             x:DataType="pagemodel:InsertTrackerEntryPageModel"
+             Title="Insert Entry">
+
+    <VerticalStackLayout>
+        <Label Text="{Binding Date, StringFormat='{0:d.M.yyy, dddd}'}"
+               FontSize="24"
+               HorizontalOptions="Center" />
+        <HorizontalStackLayout>
+            <Label Text="Start: " />
+            <TimePicker x:Name="startTimePicker"
+                        Time="{Binding StartTime}"
+                        Format="t" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="End: " />
+            <TimePicker x:Name="endTimePicker"
+                        Time="{Binding EndTime}"
+                        Format="t" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Activity: " />
+            <Button Text="Add Activity"
+                    Command="{Binding SelectActivityCommand}" />
+            <Label Text="{Binding TrackerEntry.Name}" />
+        </HorizontalStackLayout>
+        <Button Text="Save"
+                Command="{Binding SaveEntryCommand}"
+                HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,38 @@
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:viewModels="clr-namespace:JournalApp.PageModels.ActivityPageModels"
+               xmlns:pageModels="clr-namespace:JournalApp.PageModels"
+               x:Class="JournalApp.Pages.AddActivityPopup"
+               x:DataType="pageModels:AddActivityPopupModel">
+
+    <ScrollView>
+        <CollectionView ItemsSource="{Binding Activities}"
+                        Grid.Row="1"
+                        SelectionMode="Single"
+                        SelectionChangedCommand="{Binding SaveCommand}"
+                        SelectionChangedCommandParameter="{Binding x:DataType='CollectionView', Source={RelativeSource Self}, Path=SelectedItem}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="viewModels:ActivityViewModel">
+                    <Grid Padding="10"
+                          Margin="5"
+                          BackgroundColor="LightGray">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding Icon}"
+                               FontSize="20"
+                               VerticalOptions="Center"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding Name}"
+                               Grid.Column="1"
+                               VerticalOptions="Center"
+                               Margin="10,0,0,0" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
+        
+</toolkit:Popup>             

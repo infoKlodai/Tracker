@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pagemodel="clr-namespace:JournalApp.PageModels"
+             x:Class="JournalApp.Pages.MonthlyReportsPage"
+             x:DataType="pagemodel:MonthlyReportsPageModel"
+             Title="Statistics">
+
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto"
+              Style="{StaticResource Grid.Page}">
+            <HorizontalStackLayout Grid.Row="0"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Margin="10">
+                <Button Text="◀"
+                        Command="{Binding PreviousMonthCommand}"
+                        Style="{StaticResource Button.Primary}" />
+                <Label FontSize="20"
+                       HorizontalOptions="Center"
+                       Margin="10">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding FirstDayOfMonth, StringFormat='{}{0:d.M.yyy}'}" />
+                            <Span Text=" - " />
+                            <Span Text="{Binding LastDayOfMonth, StringFormat='{}{0:d.M.yyy}'}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Button Text="▶"
+                        Command="{Binding NextMonthCommand}"
+                        Style="{StaticResource Button.Primary}" />
+
+            </HorizontalStackLayout>
+            <CollectionView ItemsSource="{Binding ActivityStats}"
+                            Grid.Row="1">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="pagemodel:ActivityStatViewModel">
+                        <Grid ColumnDefinitions="Auto,*,*"
+                              Style="{StaticResource Grid.Page}">
+                            <Label Text="{Binding Icon}"
+                                   FontSize="20"
+                                   VerticalOptions="Center" />
+                            <Label Text="{Binding Name}"
+                                   FontSize="18"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"
+                                   Margin="10,0"
+                                   Grid.Column="1" />
+                            <Label Text="{Binding TotalDuration, StringFormat='{}{0:hh}:{0:mm}:{0:ss}'}"
+                                   FontSize="18"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"
+                                   Grid.Column="2" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ScrollView>
+</ContentPage>

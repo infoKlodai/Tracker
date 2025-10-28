@@ -1,10 +1,10 @@
-﻿using JournalApp.DataAccess;
-using JournalApp.Models;
-using JournalApp.PageModels.ActivityPageModels;
+﻿using Tracker.DataAccess;
+using Tracker.Models;
+using Tracker.PageModels.ActivityPageModels;
 using System.Collections.ObjectModel;
 using System.Text.Json;
 
-namespace JournalApp.PageModels
+namespace Tracker.PageModels
 {
     public partial class MonthlyReportsPageModel : BaseViewModel, IQueryAttributable
     {

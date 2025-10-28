@@ -1,6 +1,6 @@
 ﻿
 
-namespace JournalApp.PageModels
+namespace Tracker.PageModels
 {
     public partial class ActivityStatViewModel : BaseViewModel, IQueryAttributable
     {

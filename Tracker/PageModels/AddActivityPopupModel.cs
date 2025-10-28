@@ -1,10 +1,12 @@
-﻿using CommunityToolkit.Maui.Core;
-using JournalApp.Models;
-using JournalApp.PageModels.ActivityPageModels;
+﻿using Tracker.Models;
+using Tracker.PageModels.ActivityPageModels;
 using System.Collections.ObjectModel;
 using System.Text.Json;
+using CommunityToolkit.Maui.Views;
+using CommunityToolkit.Maui;
+using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace JournalApp.PageModels
+namespace Tracker.PageModels
 {
     public partial class AddActivityPopupModel : ObservableObject
     {

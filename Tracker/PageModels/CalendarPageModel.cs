@@ -1,13 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using JournalApp.Pages;
+using Tracker.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JournalApp.PageModels
+namespace Tracker.PageModels
 {
     public partial class CalendarPageModel : ObservableObject, IQueryAttributable
     {

@@ -1,6 +1,6 @@
-using JournalApp.PageModels;
+using Tracker.PageModels;
 
-namespace JournalApp.Pages;
+namespace Tracker.Pages;
 
 public partial class TrackerPage : ContentPage
 {

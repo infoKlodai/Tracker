@@ -2,10 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:pagemodel="clr-namespace:JournalApp.PageModels"
-             xmlns:viewmodel="clr-namespace:JournalApp.PageModels.ActivityPageModels"
+             xmlns:pagemodel="clr-namespace:Tracker.PageModels"
+             xmlns:viewmodel="clr-namespace:Tracker.PageModels.ActivityPageModels"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
-             x:Class="JournalApp.Pages.TrackerPage"
+             x:Class="Tracker.Pages.TrackerPage"
              x:DataType="pagemodel:TrackerPageModel"
              x:Name="activityTrackerPage"
              Title="Daily Tracker">

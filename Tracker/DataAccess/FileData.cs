@@ -1,4 +1,4 @@
-﻿namespace JournalApp.DataAccess
+﻿namespace Tracker.DataAccess
 {
     public static class FileData
     {

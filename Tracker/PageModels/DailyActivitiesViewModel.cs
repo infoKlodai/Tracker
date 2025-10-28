@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 
-namespace JournalApp.PageModels
+namespace Tracker.PageModels
 {
     public partial class DailyActivitiesViewModel : ObservableObject, IQueryAttributable
     {

@@ -1,9 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using JournalApp.Models;
+using Tracker.Models;
 using System.Runtime.CompilerServices;
 using System.Text.Json.Serialization;
 
-namespace JournalApp.PageModels.ActivityPageModels
+namespace Tracker.PageModels.ActivityPageModels
 {
     public partial class ActivityViewModel : ObservableObject, IQueryAttributable
     {

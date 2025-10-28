@@ -1,6 +1,6 @@
-﻿using JournalApp.PageModels.ActivityPageModels;
+﻿using Tracker.PageModels.ActivityPageModels;
 
-namespace JournalApp.PageModels
+namespace Tracker.PageModels
 {
     public partial class InsertTrackerEntryPageModel : BaseViewModel, IQueryAttributable
     {

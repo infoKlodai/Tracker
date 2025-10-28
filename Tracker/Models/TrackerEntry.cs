@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 
 
-namespace JournalApp.Models
+namespace Tracker.Models
 {
     public class TrackerEntry
     {

@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Maui;
-using JournalApp.PageModels;
-using JournalApp.Pages;
+using Tracker.PageModels;
+using Tracker.Pages;
 
-namespace JournalApp.ExtensionClasses
+namespace Tracker.ExtensionClasses
 {
     public static class ServiceExtensions
     {

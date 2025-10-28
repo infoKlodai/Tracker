@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using JournalApp.Models;
-using JournalApp.PageModels.ActivityPageModels;
-namespace JournalApp.PageModels
+using Tracker.Models;
+using Tracker.PageModels.ActivityPageModels;
+namespace Tracker.PageModels
 {
     public partial class TrackerEntryViewModel : ObservableObject, IQueryAttributable
     {

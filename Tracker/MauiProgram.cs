@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Maui;
-using JournalApp.ExtensionClasses;
+using Tracker.ExtensionClasses;
 using Microsoft.Extensions.Logging;
 
-namespace JournalApp;
+namespace Tracker;
 
 public static class MauiProgram
 {

@@ -1,17 +1,18 @@
-﻿using CommunityToolkit.Maui.Core;
+﻿using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Core.Extensions;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using JournalApp.DataAccess;
-using JournalApp.Models;
-using JournalApp.PageModels.ActivityPageModels;
-using JournalApp.Pages;
+using Tracker.DataAccess;
+using Tracker.Models;
+using Tracker.PageModels.ActivityPageModels;
+using Tracker.Pages;
 using System.Collections.ObjectModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace JournalApp.PageModels
+namespace Tracker.PageModels
 {
     public partial class TrackerPageModel : BaseViewModel,  IQueryAttributable
     {
